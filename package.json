@@ -1,0 +1,14 @@
+{
+  "name": "make-a-game-052620-ft",
+  "version": "1.0.0",
+  "description": "How to make a game",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Enoch Griffith",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

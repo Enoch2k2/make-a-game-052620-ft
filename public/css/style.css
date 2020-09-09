@@ -4,8 +4,3 @@ div#game {
   width: 800px;
   margin: 0 auto;
 }
-
-canvas {
-  height: 600px;
-  width: 800px;
-}

@@ -30,6 +30,23 @@ function setup() {
 function setupControls() {
   setupMovement()
   setupPlayerStop()
+  setupFireLaserBeams();
+}
+
+function setupFireLaserBeams() {
+  document.addEventListener('keydown', function (e) {
+    if (e.which == SPACEBAR && player.fireReady) {
+      if (player.direction == "up" || player.direction == "down") {
+        LaserBeam.create(player.laserEntryPoint, (player.width / 2) - 2, player.height + 2)
+        player.fireReady = false;
+        setTimeout(player.reload.bind(player), player.fireRate)
+      } else {
+        LaserBeam.create(player.laserEntryPoint, player.height + 2, (player.width / 2) - 2)
+        player.fireReady = false;
+        setTimeout(player.reload.bind(player), player.fireRate)
+      }
+    }
+  })
 }
 
 function setupMovement() {
@@ -69,10 +86,12 @@ function clearWindow() {
 
 function update() {
   player.update();
+  LaserBeam.updateAll();
 }
 
 function render() {
   player.render();
+  LaserBeam.renderAll();
 }
 
 function draw() {
